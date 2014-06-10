@@ -1,5 +1,6 @@
 require "pipeline/version"
 require "pipeline/configuration"
+require "pipeline/client"
 
 module Pipeline
   class << self
