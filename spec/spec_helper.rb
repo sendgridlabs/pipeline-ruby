@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'rspec/its'
 require 'vcr'
 
 SimpleCov.start do

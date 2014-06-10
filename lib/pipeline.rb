@@ -1,3 +1,4 @@
+require "httparty"
 require "pipeline/version"
 require "pipeline/configuration"
 require "pipeline/client"
