@@ -10,7 +10,7 @@ module Pipeline
       end
 
       def create(data)
-        HTTParty.post("#{base_uri}pipelines", headers: headers, data: data.to_json, verify: false)
+        HTTParty.post("#{base_uri}pipelines", headers: headers, body: data.to_json, verify: false)
       end
 
       def get(pipeline_id)
@@ -22,7 +22,8 @@ module Pipeline
       end
 
       def run(pipeline_id, data)
-        HTTParty.put("#{base_uri}pipelines/#{pipeline_id}/run", headers: headers, verify: false, data: data.to_json)
+        body = {"context_id" => "context1", "data" => data.to_json}.to_json
+        HTTParty.put("#{base_uri}pipelines/#{pipeline_id}/run", body: body, headers: headers, verify: false)
       end
 
       private

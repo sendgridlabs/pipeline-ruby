@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://pipe.do/v1/pipelines/f6c22e30-a28c-48a4-9d43-a91b06e7690c/run
+    body:
+      encoding: UTF-8
+      string: '{"context_id":"context1","data":"{\"other\":\"asdf\",\"value\":2}"}'
+    headers:
+      Content-Type:
+      - application/json
+      Apikey:
+      - 37c41197-ae70-4429-9e99-fb94c8515096
+  response:
+    status:
+      code: 204
+      message: OK
+    headers:
+      Content-Length:
+      - '0'
+      X-Powered-By:
+      - yoke
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 11 Jun 2014 09:41:06 GMT
+recorded_with: VCR 2.9.2

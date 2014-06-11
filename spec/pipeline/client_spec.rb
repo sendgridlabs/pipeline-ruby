@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe Pipeline::Client do
+  before do
+    Pipeline.configure do |c|
+      c.host = "pipe.do"
+      c.api_key = "37c41197-ae70-4429-9e99-fb94c8515096"
+    end
+  end
+
   describe ".base_url" do
     subject{ described_class.base_uri }
     before do
@@ -31,41 +38,30 @@ describe Pipeline::Client do
   describe ".get", vcr: true do
     subject(:response){ described_class.get("8cd6ea20-5a1a-443b-b60d-93503e9dcf20") }
 
-    before do
-      Pipeline.configure do |c|
-        c.host = "pipe.do"
-        c.api_key = "37c41197-ae70-4429-9e99-fb94c8515096"
-      end
-    end
-
     it{ expect(response.code).to eql(200) }
   end
 
   describe ".delete", vcr: true do
     subject(:response){ described_class.delete("8cd6ea20-5a1a-443b-b60d-93503e9dcf20") }
 
-    before do
-      Pipeline.configure do |c|
-        c.host = "pipe.do"
-        c.api_key = "37c41197-ae70-4429-9e99-fb94c8515096"
-      end
-    end
 
     it{ expect(response.code).to eql(204) }
   end
 
-  describe ".run" do
+  describe ".run", vcr: true do
     let(:data){ { "other" => "asdf","value" => 2} }
 
-    subject(:response){ described_class.run("a96a390d-798d-4bf7-b131-462900ba78dd", data) }
+    subject(:response){ described_class.run("f6c22e30-a28c-48a4-9d43-a91b06e7690c", data) }
 
-    before do
-      Pipeline.configure do |c|
-        c.host = "pipe.do"
-        c.api_key = "37c41197-ae70-4429-9e99-fb94c8515096"
-      end
-    end
+    it{ expect(response.code).to eql(204) }
+  end
 
-    it{ expect(response.code).to eql(200) }
+  describe ".create", vcr: true do
+    let(:data){ {"pipeline"=>[{"seconds"=>10, "type"=>"delay", "name"=>"10 second delay"}, {"url"=>"https://api.destination.com", "type"=>"output", "name"=>"Output 1"}]} }
+
+    subject(:response){ described_class.create(data) }
+
+    it{ expect(response.code).to eql(201) }
+    it{ expect(response.parsed_response).to eql({"id"=>"f6c22e30-a28c-48a4-9d43-a91b06e7690c"}) }
   end
 end
