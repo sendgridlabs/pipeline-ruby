@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Pipeline do
+describe PipelineRuby do
   describe ".configure" do
-    subject(:configuration){ Pipeline.configuration }
+    subject(:configuration){ PipelineRuby.configuration }
 
     before do
       described_class.configure do |config|

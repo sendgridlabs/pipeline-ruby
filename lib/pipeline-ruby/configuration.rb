@@ -1,4 +1,4 @@
-module Pipeline
+module PipelineRuby
   class Configuration
     OPTIONS = [:api_key, :host].freeze
 

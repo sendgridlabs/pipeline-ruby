@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Pipeline::Client do
+describe PipelineRuby::Client do
   before do
-    Pipeline.configure do |c|
+    PipelineRuby.configure do |c|
       c.host = "pipe.do"
       c.api_key = "37c41197-ae70-4429-9e99-fb94c8515096"
     end
@@ -11,7 +11,7 @@ describe Pipeline::Client do
   describe ".base_url" do
     subject{ described_class.base_uri }
     before do
-      Pipeline.configure do |c|
+      PipelineRuby.configure do |c|
         c.host = "pipe.do"
       end
     end
@@ -23,7 +23,7 @@ describe Pipeline::Client do
     subject{ described_class.headers }
 
     before do
-      Pipeline.configure do |c|
+      PipelineRuby.configure do |c|
         c.api_key = "fake_api_key"
       end
     end

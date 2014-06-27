@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'pipeline/version'
+require 'pipeline-ruby/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "pipeline"
-  spec.version       = Pipeline::VERSION
+  spec.version       = PipelineRuby::VERSION
   spec.authors       = ["paladiy"]
   spec.email         = ["olexanderpaladiy@gmail.com"]
   spec.summary       = %q{Ruby gem for pipeline api}

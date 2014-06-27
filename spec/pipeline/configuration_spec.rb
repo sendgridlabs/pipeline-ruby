@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Pipeline::Configuration do
+describe PipelineRuby::Configuration do
   subject(:configuration){ described_class.new }
 
   context "with default params" do

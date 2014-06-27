@@ -1,12 +1,12 @@
 require "httparty"
-require "pipeline/version"
-require "pipeline/configuration"
-require "pipeline/client"
+require "pipeline-ruby/version"
+require "pipeline-ruby/configuration"
+require "pipeline-ruby/client"
 
-module Pipeline
+module PipelineRuby
   class << self
 
-    # Pipeline.configure do |config|
+    # PipelineRuby.configure do |config|
     #    config.api_key = 'your_api_key'
     #    config.host    = 'pipe.do'
     # end

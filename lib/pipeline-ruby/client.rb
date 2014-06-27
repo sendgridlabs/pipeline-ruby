@@ -1,8 +1,8 @@
-module Pipeline
+module PipelineRuby
   class Client
     class << self
       def base_uri
-        "https://#{Pipeline.configuration.host}/v1/"
+        "https://#{PipelineRuby.configuration.host}/v1/"
       end
 
       def headers
@@ -29,7 +29,7 @@ module Pipeline
       private
 
       def configuration
-        Pipeline.configuration
+        PipelineRuby.configuration
       end
     end
   end
